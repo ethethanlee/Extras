@@ -1,29 +1,31 @@
-def longestPalindrome(s):
-    forwards = s
-    backwards = forwards[::-1]
-    letterpos = 0
-    backwardsletterpos = len(s)
-    bestlength = 0
-    total = ''
-    for letter in forwards:
-        count = 0
-        for backwardsletter in backwards:
-            count+=1
-            if backwardsletter == letter:
-                if (len(backwards[(count - 1):backwardsletterpos]) >= bestlength):
-                    if (backwards[(count - 1):backwardsletterpos] == forwards[letterpos:(len(s) - (count - 1))]):
-                        total = backwards[(count - 1):backwardsletterpos]
-                        bestlength = len(backwards[(count - 1):backwardsletterpos])
-        letterpos+=1
-        backwardsletterpos-=1
-    if total == '':
-        return s[0]
-    else:
-        return total
+class Solution:
+    def longestPalindrome(self,s):
+        forwards = s
+        backwards = forwards[::-1]
+        letterpos = 0
+        backwardsletterpos = len(s)
+        bestlength = 0
+        total = ''
+        for letter in forwards:
+            count = 0
+            for backwardsletter in backwards:
+                count+=1
+                if backwardsletter == letter:
+                    if (len(backwards[(count - 1):backwardsletterpos]) >= bestlength):
+                        if (backwards[(count - 1):backwardsletterpos] == forwards[letterpos:(len(s) - (count - 1))]):
+                            total = backwards[(count - 1):backwardsletterpos]
+                            bestlength = len(backwards[(count - 1):backwardsletterpos])
+            letterpos+=1
+            backwardsletterpos-=1
+        if total == '':
+            return s[0]
+        else:
+            return total
 
 
-print(longestPalindrome("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"))
-
+a = Solution()
+print(a.longestPalindrome('eeeeeeeeeeeeeeeeeeeee'))
+print(a.longestPalindrome('hello'))
 
 # def longestPalindrome(s):
 #     forwards = s
