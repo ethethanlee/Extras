@@ -41,7 +41,7 @@ class Solution(object):
                 if count[tree[l]] == 0:
                     del count[tree[l]]
                 l += 1
-            ans = max(ans, r - l + 1)
+            ans = max(ans, r - l + 1) #r is count and t is the value
 
         return ans
 
