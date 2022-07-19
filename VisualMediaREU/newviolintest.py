@@ -3,11 +3,11 @@ import numpy as np
 # import keyboard
 
 
-cap = cv2.VideoCapture('violin.mp4')
+cap = cv2.VideoCapture('moreviolinimage.mp4')
 frameCount = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 frameWidth = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 frameHeight = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-vidObj = cv2.VideoCapture('violin.mp4')
+vidObj = cv2.VideoCapture('moreviolinimage.mp4')
 frame = np.empty((frameCount, frameHeight, frameWidth, 3), np.dtype('uint8'))
 
 fc = 0
@@ -44,5 +44,5 @@ while success:
     if value=='r':
         folder = 'pizz'
     # Save Frame by Frame into disk using imwrite method
-    cv2.imwrite(folder + '/Frame'+str(i)+'.jpg', frame)
+    cv2.imwrite('rawData/'+ folder + '/newFrame'+str(i)+'.jpg', frame)
     print('frame done')
