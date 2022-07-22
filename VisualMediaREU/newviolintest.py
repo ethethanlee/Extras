@@ -3,11 +3,11 @@ import numpy as np
 # import keyboard
 
 
-cap = cv2.VideoCapture('20JulyTestImages.mp4')
+cap = cv2.VideoCapture('allNot3.mp4') #allPizz_almost.mp4
 frameCount = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 frameWidth = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 frameHeight = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-vidObj = cv2.VideoCapture('20JulyTestImages.mp4')
+vidObj = cv2.VideoCapture('allNot3.mp4')
 frame = np.empty((frameCount, frameHeight, frameWidth, 3), np.dtype('uint8'))
 
 fc = 0
@@ -37,14 +37,9 @@ while success:
         folder = 'notPlaying'
     if value=='w':
         #print(0xff)
-
         folder = 'bowPlaying'
     if value=='e':
-        folder = 'colLegno'
-    if value=='r':
         folder = 'pizz'
-    if value=='t':
-        folder = 'test'
     # Save Frame by Frame into disk using imwrite method
-    cv2.imwrite('rawData/'+ folder + '/newFrame'+str(i)+'.jpg', frame)
+    cv2.imwrite('newData/'+ folder + '/newFrame'+str(i)+'.jpg', frame)
     print('frame done')
